@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Tracker for Project 4 AUTOM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3>Order list</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Customer</th>
+        <th>Order details</th>
+        <th>Order date</th>
+        <th>Order price</th>
+    </tr>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.users.login}"></td>
+        <td th:text="${order.customer}"></td>
+        <td th:text="${order.products}"></td>
+        <td th:text="${order.orderDate}"></td>
+        <td th:text="${order.price}"></td>
+    </tr>
+</table>
+</body>
+</html>
