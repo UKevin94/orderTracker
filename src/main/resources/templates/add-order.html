@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Tracker for Project 4 AUTOM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3>Add order form</h3>
+<div>
+    <form action="#" th:action="@{/add-order}" th:object="${order}" method="post" >
+        <label for="users">User</label>
+        <select id="users" th:field="*{users}">
+            <option th:each="user : ${users}" th:text="${user.login}" th:value="${user.id}"></option>
+        </select>
+
+        <label for="customer">Customer</label>
+        <input id="customer" type="text" placeholder="Enter the customer's name..." th:field="*{customer}"/>
+
+        <label for="products">Products</label>
+        <input id="products" type="text" placeholder="Enter all products in the order..." th:field="*{products}"/>
+
+        <label for="price">Price</label>
+        <input id="price" type="text" placeholder="Enter the order's price..."th:field="*{price}" />
+
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+</body>
+</html>

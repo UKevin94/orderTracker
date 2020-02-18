@@ -23,6 +23,7 @@ public class OrderController {
         order.setProducts(products);
         order.setPrice(price);
         order.setOrderDate(orderDate);
+        orderRepository.save(order);
         return "Order saved";
     }
 
