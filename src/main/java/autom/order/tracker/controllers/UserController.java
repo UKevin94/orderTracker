@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping(path="/api/add")
+    @PostMapping(path="/add")
     public @ResponseBody String addNewUser(@RequestParam(value="login") String login, @RequestParam(value="password") String password, @RequestParam(value="mail") String mail){
         User user = new User();
         user.setLogin(login);
@@ -26,12 +26,12 @@ public class UserController {
         return "Done";
     }
 
-    @GetMapping(path="/api/list")
+    @GetMapping(path="/list")
     public @ResponseBody Iterable<User> getAllUsers(){
         return userRepository.findAll();
     }
 
-    @GetMapping(path="/api/view")
+    @GetMapping(path="/view")
     public @ResponseBody Optional<User> getUser(@RequestParam Integer id){
         return userRepository.findById(id);
     }

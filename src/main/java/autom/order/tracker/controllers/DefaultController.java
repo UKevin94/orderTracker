@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller("/")
+@Controller
+@RequestMapping("/web")
 public class DefaultController {
 
     @Autowired
@@ -23,6 +25,16 @@ public class DefaultController {
     public String error(){
         return "error";
     }
+
+/*    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }*/
+
+    /*@PostMapping("/perform-login")
+    public String perform_login(){
+
+    }*/
 
     @GetMapping("/list-users")
     public String listUsers(Model model){
